@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import TodoList from "../views/TodoList.vue";
-import BacklogList from "../views/BacklogList.vue";
+import TodoList from "@/views/TodoList.vue";
+import BacklogList from "@/views/BacklogList.vue";
 
 const routes = [
   { path: "/", component: TodoList },
