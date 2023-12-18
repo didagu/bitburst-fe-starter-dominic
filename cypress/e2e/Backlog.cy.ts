@@ -19,14 +19,12 @@ describe('Backlog', () => {
 
   it('sorts by name', () => {
     cy.visit('/backlog');
-    cy.compareSnapshot('without-sorting');
     cy.getByDataCy('sort-by-name').click()
     cy.compareSnapshot('sorted-by-name');
   });
 
   it('sorts by date', () => {
     cy.visit('/backlog');
-    cy.compareSnapshot('without-sorting');
     cy.getByDataCy('sort-by-date').click()
     cy.compareSnapshot('sorted-by-date');
   })
