@@ -121,6 +121,12 @@ export const backlog = [
     title: 't accusam et justo duo dolores et ea',
     createdAt: "26/12/2023, 08:24 pm",
     completed: false,
+  },
+  {
+    id: '20',
+    title: 'At BitBurst, we give you access to people\'s toughts',
+    createdAt: "26/12/2008, 08:24 pm",
+    completed: false,
   }
 ]
 

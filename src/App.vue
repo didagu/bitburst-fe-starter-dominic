@@ -4,10 +4,10 @@
       <table>
         <tbody class="flex">
         <tr class="flex gap-12">
-          <td class="tab" :class="{ 'active': $route.path === '/' }">
+          <td class="tab" :class="{ 'active': $route.path === '/' }" data-cy="go-to-todolist">
             <router-link to="/">To Do List</router-link>
           </td>
-          <td class="tab" :class="{ 'active': $route.path === '/backlog' }">
+          <td class="tab" :class="{ 'active': $route.path === '/backlog' }" data-cy="go-to-backlog">
             <router-link to="/backlog">Backlog</router-link>
           </td>
         </tr>

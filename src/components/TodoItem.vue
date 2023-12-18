@@ -1,6 +1,6 @@
 <template>
   <div class="todo">
-    <div class="todo-icon grow-0" @click="toggleItemCompletionInStore">
+    <div class="todo-icon grow-0" @click="toggleItemCompletionInStore" data-cy="todo-item-icon">
       <div v-if="todo.completed">
         <div class="checkmark-circle">
         </div>
@@ -59,7 +59,7 @@ const toggleItemCompletionInStore = () => {
 }
 
 .empty-circle {
-  @apply flex relative w-30 h-30 items-center justify-center border-[1px] border-chrome rounded-full bg-white;
+  @apply flex relative w-30 h-30 items-center justify-center border-[1px] border-chrome rounded-full bg-white cursor-pointer;
 }
 
 .todo-text.completed {

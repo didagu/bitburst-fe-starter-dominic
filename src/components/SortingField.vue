@@ -1,8 +1,8 @@
 <template>
   <div class="flex h-40">
     <BbInput class="flex-shrink grow sm:w-3/5 w-2/5" :input-value="searchValue" placeholder="Search" @update:model-value="emitSearchValue"/>
-    <BbButton class="flex-shrink-0 sm:w-1/5 w-3/10" @click="sortBy('title')">Sort by Name</BbButton>
-    <BbButton class="flex-shrink-0 sm:w-1/5 w-3/10" @click="sortBy('createdAt')">Sort by Date</BbButton>
+    <BbButton class="flex-shrink-0 sm:w-1/5 w-3/10" @click="sortBy('title')" data-cy="sort-by-name">Sort by Name</BbButton>
+    <BbButton class="flex-shrink-0 sm:w-1/5 w-3/10" @click="sortBy('createdAt')" data-cy="sort-by-date">Sort by Date</BbButton>
   </div>
 
 </template>

@@ -1,10 +1,10 @@
 <template>
   <div class="backlog-list">
-    <SortingField :search-value="searchValue" @update:searchValue="updateSearchValue"/>
+    <SortingField :search-value="searchValue" @update:searchValue="updateSearchValue" data-cy="sorting-field"/>
     <transition-group name="list" tag="ul">
       <li v-for="item in filteredItems" :key="item.id">
         <div class="todo-list-item">
-          <TodoItem :todo="item" type="backlog"/>
+          <TodoItem :todo="item" type="backlog" data-cy="backlog-item"/>
         </div>
       </li>
     </transition-group>

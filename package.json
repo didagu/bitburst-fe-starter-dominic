@@ -26,6 +26,7 @@
     "vite": "^4.4.5",
     "vue-tsc": "^1.8.5",
 		"@types/uuid": "^9.0.7",
-		"cypress": "^13.6.1"
+		"cypress": "^13.6.1",
+		"cypress-image-diff-js": "^1.30.1"
 	}
 }

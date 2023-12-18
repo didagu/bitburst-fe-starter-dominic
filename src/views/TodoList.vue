@@ -1,7 +1,7 @@
 <template>
   <div class="todo-list">
     <div class="todo-list-done-items">
-      <div class="completedItemsSummary">
+      <div class="completedItemsSummary" data-cy="todolist-completed-items-summary">
         <div class="caret" :class="{ 'caret-down': showItemsCompleted, 'caret-right': !showItemsCompleted }" @click="toggleItemsCompleted"></div>
         {{ itemsStore.completedItems.length }} Done
       </div>
@@ -16,7 +16,7 @@
     <hr class="border-chrome">
     <transition-group name="list" tag="ul">
       <li v-for="item in itemsStore.items" :key="item.id">
-        <TodoItem class="todo-list-item" :todo="item" type="uncompleted"/>
+        <TodoItem class="todo-list-item" :todo="item" type="uncompleted" data-cy="todolist-item"/>
       </li>
     </transition-group>
   </div>

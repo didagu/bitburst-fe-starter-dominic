@@ -1,18 +1,18 @@
 <template>
   <div class="actions">
     <div class="dropdown" ref="dropdown" v-if="type === 'uncompleted'">
-      <div class="ellipsis" :class="{ 'active': isEllipsisActive }" @click="showDefaultAction">
+      <div class="ellipsis" :class="{ 'active': isEllipsisActive }" @click="showDefaultAction" data-cy="item-action-ellipsis">
         <div class="small-circle"></div>
         <div class="small-circle"></div>
         <div class="small-circle"></div>
       </div>
       <ul class="options-list" :class="{ 'show': showDefaultActions }">
-        <li @click="deleteItemFromStore">Delete</li>
-        <li @click="moveItemFromListToBacklog">Move to backlog</li>
+        <li @click="deleteItemFromStore" data-cy="delete-item">Delete</li>
+        <li @click="moveItemFromListToBacklog" data-cy="move-item-to-backlog">Move to backlog</li>
       </ul>
     </div>
     <div v-if="type === 'backlog'">
-      <BbButton class="grow-0" small variant="outlined" @click="moveToList">Move to List</BbButton>
+      <BbButton class="grow-0" small variant="outlined" @click="moveToList" data-cy="move-item-to-list">Move to List</BbButton>
     </div>
   </div>
 </template>

@@ -1,7 +1,7 @@
 <template>
   <div class="flex">
-    <BbInput class="grow" :input-value="inputValue" @update:model-value="updateInputValue"/>
-    <BbButton class="grow-0" :disabled="isButtonDisabled" @click="addItem">Add item</BbButton>
+    <BbInput class="grow" :input-value="inputValue" @update:model-value="updateInputValue" data-cy="input-field"/>
+    <BbButton class="grow-0" :disabled="isButtonDisabled" @click="addItem" data-cy="add-new-item">Add item</BbButton>
   </div>
 </template>
 <script lang="ts" setup>
