@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { State } from "@/store/ItemTypes.ts";
+import { Item, State } from "@/store/ItemTypes.ts";
 import { v4 as uuidv4 } from "uuid";
 import { list, backlog, completedItems } from '@/fixtures/seeds.ts'
 
@@ -25,6 +25,21 @@ export const useItemsStore = defineStore('items', {
         ),
         completed: false
       })
+    },
+    toggleItemCompletion(value: Item, targetArray: string) {
+      const arrayToUse = targetArray === 'list' ? 'items' : 'backlog'
+      const foundItem = this[arrayToUse].find(({ id }) => id === value.id)
+      if(foundItem) {
+        foundItem.completed = !foundItem.completed
+        setTimeout(() => {
+          this.completedItems.push(foundItem)
+          this.deleteItem(value.id, targetArray)
+        }, 500)
+      }
+    },
+    deleteItem(value: string, fromWhere: string = 'list') {
+      const arrayToUse = fromWhere === 'list' ? 'items' : 'backlog'
+      this[arrayToUse] = this[arrayToUse ].filter(item => item.id !== value)
     },
   }
 });
