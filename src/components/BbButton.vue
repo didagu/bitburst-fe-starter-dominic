@@ -1,6 +1,6 @@
 <template>
   <button
-    class="font-medium border rounded"
+    class="font-medium border rounded m-8"
     :class="{
       'text-13 py-8 px-12': small,
       'text-15 py-12 px-15': !small,

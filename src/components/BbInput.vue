@@ -1,7 +1,10 @@
 <template>
   <input
     :type="type"
-    class="text-15 text-black border border-gray-light rounded py-12 px-15 focus:border-blue"
+    maxlength="70"
+    class="text-15 text-black border border-gray-light rounded py-12 px-15 m-8 focus:border-blue"
+    :value="inputValue"
+    @input="updateInputValue"
   />
 </template>
 
@@ -9,9 +12,16 @@
 withDefaults(
   defineProps<{
     type?: string;
+    inputValue: string;
   }>(),
   {
     type: "text",
   }
 );
+
+const emit = defineEmits()
+
+const updateInputValue = (event: Event) => {
+  emit('update:modelValue', event.target?.value)
+}
 </script>

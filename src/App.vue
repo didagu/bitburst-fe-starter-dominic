@@ -18,10 +18,12 @@
       <router-view/>
     </div>
     <div class="flex-none h-1/8">
+      <input-field />
     </div>
   </div>
 </template>
 <script lang="ts" setup>
+import InputField from '@/components/InputField.vue';
 </script>
 <style scoped>
 .mainContainer {
