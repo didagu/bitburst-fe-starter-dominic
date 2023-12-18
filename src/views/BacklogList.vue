@@ -1,12 +1,12 @@
 <template>
   <div class="backlog-list">
-    <ul>
+    <transition-group name="list" tag="ul">
       <li v-for="item in itemsStore.backlog" :key="item.id">
         <div class="todo-list-item">
           <TodoItem :todo="item" type="backlog"/>
         </div>
       </li>
-    </ul>
+    </transition-group>
   </div>
 </template>
 <script setup lang="ts">
@@ -22,5 +22,20 @@ const itemsStore = useItemsStore();
 }
 .backlog-list {
   @apply pt-8
+}
+
+.list-move,
+.list-enter-active,
+.list-leave-active {
+  @apply transition-all duration-1000 ease-out;
+}
+
+.list-enter-from,
+.list-leave-to {
+  @apply opacity-0;
+}
+
+.list-leave-active {
+  @apply absolute;
 }
 </style>
