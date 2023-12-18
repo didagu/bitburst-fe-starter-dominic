@@ -43,5 +43,15 @@ import InputField from '@/components/InputField.vue';
       }
     }
   }
+
+  .routerView {
+    &::-webkit-scrollbar{
+      @apply w-5 h-10;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      @apply bg-chrome rounded-[5px];
+    }
+  }
 }
 </style>
