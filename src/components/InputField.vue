@@ -6,10 +6,12 @@
 </template>
 <script lang="ts" setup>
 import { ref, computed, watchEffect } from 'vue';
+import { useItemsStore } from '@/store/items';
 import { useRoute } from "vue-router";
 import BbButton from '@/components/BbButton.vue';
 import BbInput from '@/components/BbInput.vue';
 
+const itemsStore = useItemsStore();
 const route = useRoute();
 
 const currentRoute = ref('')
@@ -25,6 +27,8 @@ const updateInputValue = (val: string) => {
   inputValue.value = val
 }
 const addItem = () => {
+  const toWhere = currentRoute.value === '/' ? 'list' : 'backlog'
+  itemsStore.addItem(inputValue.value, toWhere)
   inputValue.value =  '';
 }
 </script>
