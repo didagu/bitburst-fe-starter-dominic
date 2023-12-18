@@ -15,7 +15,11 @@
       </table>
     </div>
     <div class="routerView flex-grow overflow-y-auto">
-      <router-view/>
+      <router-view v-slot="{ Component }">
+        <transition name="fade" mode="out-in">
+          <component :is="Component"/>
+        </transition>
+      </router-view>
     </div>
     <div class="flex-none h-1/8">
       <input-field />
@@ -51,6 +55,15 @@ import InputField from '@/components/InputField.vue';
 
     &::-webkit-scrollbar-thumb {
       @apply bg-chrome rounded-[5px];
+    }
+
+    .fade-enter-from,
+    .fade-leave-to {
+      opacity: 0;
+    }
+    .fade-enter-active,
+    .fade-leave-active {
+      transition: opacity 0.5s ease-out;
     }
   }
 }
