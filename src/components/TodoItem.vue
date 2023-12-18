@@ -17,9 +17,11 @@
         {{ todo.createdAt }}
       </div>
     </div>
+    <ItemActions class="grow-0" v-show="!todo.completed" :item-id="todo.id" :type="type"/>
   </div>
 </template>
 <script lang="ts" setup>
+import ItemActions from "@/components/ItemActions.vue";
 import { Item } from "@/store/ItemTypes.ts";
 import { useItemsStore } from "@/store/items.ts";
 import { ref, watchEffect } from "vue";

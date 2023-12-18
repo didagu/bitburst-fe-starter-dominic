@@ -41,5 +41,19 @@ export const useItemsStore = defineStore('items', {
       const arrayToUse = fromWhere === 'list' ? 'items' : 'backlog'
       this[arrayToUse] = this[arrayToUse ].filter(item => item.id !== value)
     },
+    moveItemToBacklog(value: string) {
+      const itemToMove = this.items.find(item => item.id === value)
+      if(itemToMove) {
+        this.backlog.push(itemToMove);
+        this.deleteItem(value);
+      }
+    },
+    moveItemToList(value: string) {
+      const itemToMove = this.backlog.find(item => item.id === value)
+      if(itemToMove) {
+        this.items.push(itemToMove);
+        this.deleteItem(value, 'backlog');
+      }
+    },
   }
 });
