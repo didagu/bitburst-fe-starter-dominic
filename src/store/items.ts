@@ -55,5 +55,18 @@ export const useItemsStore = defineStore('items', {
         this.deleteItem(value, 'backlog');
       }
     },
+    sortBy(sortCriteria: keyof Item) {
+      this.backlog.sort((a, b) => {
+        if (typeof a[sortCriteria] === 'string') {
+          return (a[sortCriteria] as string).localeCompare(b[sortCriteria] as string);
+        } else if (typeof a[sortCriteria] === 'boolean') {
+          // Sort booleans with true first
+          return a[sortCriteria] === b[sortCriteria] ? 0 : a[sortCriteria] ? -1 : 1;
+        } else {
+          // Handle other types if needed
+          return 0;
+        }
+      });
+    }
   }
 });
