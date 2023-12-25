@@ -14,14 +14,14 @@
         </tbody>
       </table>
     </div>
-    <div class="routerView flex-grow overflow-y-auto">
+    <div class="routerView flex-grow">
       <router-view v-slot="{ Component }">
         <transition name="fade" mode="out-in">
           <component :is="Component"/>
         </transition>
       </router-view>
     </div>
-    <div class="flex-none h-1/8">
+    <div class="input-field">
       <input-field />
     </div>
   </div>
@@ -31,10 +31,10 @@ import InputField from '@/components/InputField.vue';
 </script>
 <style scoped>
 .mainContainer {
-  @apply flex flex-col h-screen w-full sm:w-1/2 my-0 mx-auto pt-30 pb-48;
+  @apply flex flex-col h-full w-full sm:w-1/2 my-0 mx-auto pb-48;
 
   .tabs {
-    @apply flex-none h-[1/8] border-y-chrome border-b;
+    @apply sticky flex-none border-y-chrome border-b top-0 z-50 bg-white pt-30;
 
     .tab {
       @apply relative flex justify-center items-center w-auto h-30 pb-20 text-gray text-[28px] font-bold leading-loose;
@@ -48,15 +48,11 @@ import InputField from '@/components/InputField.vue';
     }
   }
 
+  .input-field {
+    @apply sticky flex-none bottom-0 z-50 bg-white;
+  }
+
   .routerView {
-    &::-webkit-scrollbar{
-      @apply w-5 h-10;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      @apply bg-chrome rounded-[5px];
-    }
-
     .fade-enter-from,
     .fade-leave-to {
       opacity: 0;
